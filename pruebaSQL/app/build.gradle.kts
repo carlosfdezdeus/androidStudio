@@ -4,12 +4,13 @@ plugins {
 
 android {
     namespace = "com.example.pruebasql"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.pruebasql"
         minSdk = 16
-        targetSdk = 33
+        //noinspection EditedTargetSdkVersion
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -37,7 +38,6 @@ dependencies {
     implementation("com.google.android.material:material:1.10.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     // Añado libería para poder realizar peticiones HTTP:
-    implementation("com.android.volley:volley-cronet:1.1.0")
     implementation("com.google.firebase:firebase-inappmessaging:20.4.0")
     implementation("com.android.volley:volley:1.2.1")
     testImplementation("junit:junit:4.13.2")

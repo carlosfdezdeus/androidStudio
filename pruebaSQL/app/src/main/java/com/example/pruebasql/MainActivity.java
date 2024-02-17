@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                validarUsuario("http://77.26.167.221/api/validar_usuario.php");
+                validarUsuario("https://pablopio.ddns.net:9443/api/validar_usuario.php");
             }
         });
     }
@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                 }else{
                     // Mensaje: "Contraseñas incorrectas"
+                    System.out.println("Usuario o contraseña incorrecta");
                     Toast.makeText(MainActivity.this, "Usuario o contraseña incorrecta", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -65,7 +66,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 // Mensaje que capture y muestre el error (no recomendable para el usuario final)
-                Toast.makeText(MainActivity.this, error.toString(), Toast.LENGTH_SHORT).show();
+                System.out.println( error.toString());
+                Toast.makeText(MainActivity.this,error.toString() , Toast.LENGTH_SHORT).show();
             }
         }){
             @Override
@@ -75,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
                 // Ingresamos los datos a enviar al servicio PHP
                 parametros.put("usuario", edtUsuario.getText().toString());
                 parametros.put("password", edtPassword.getText().toString());
-                return super.getParams();
+                return parametros;
             }
         };
 
